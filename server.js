@@ -37,4 +37,4 @@ renderAndPost = function() {
 setTimeout(function() {
   console.log("Posting in a bit...");
   renderAndPost();
-}, 2*60*1000); // delay first post for 2 mins so computer can boot - put this on a Forever process
+}, 1*60*1000); // delay first post for 2 mins so computer can boot - put this on a Forever process
