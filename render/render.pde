@@ -8,6 +8,6 @@ void setup() {
   forms = new RandomForm();
   
   forms.draw();
-  saveFrame("output.png");
+  saveFrame("render.png");
   //exit();
 }

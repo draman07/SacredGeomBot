@@ -34,13 +34,13 @@ class Form {
   public float shapeFillOpacity = 0.0;
 
   // == centers style ==
-  public boolean showCenters = true;
+  public boolean showCenters = false;
   public color centerStrokeColor = #ffffff;
   public float centerStrokeWeight = 12.0;
   public float centerStrokeOpacity = 1.0;
 
   // == network style ==
-  public boolean showNetwork = true;
+  public boolean showNetwork = false;
   public color networkStrokeColor = #eeeeee;
   public float networkStrokeWeight = 2.0;
   public float networkStrokeOpacity = 0.8;
