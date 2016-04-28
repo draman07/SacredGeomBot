@@ -9,5 +9,5 @@ void setup() {
   
   forms.draw();
   saveFrame("render.png");
-  //exit();
+  exit();
 }

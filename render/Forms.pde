@@ -41,7 +41,7 @@ public class Forms {
     // draw forms
     for (Form form : forms) {
       blendMode(form.blendmode);
-      image(form.draw(), 0, 0);
+      image(form.draw(darkBack), 0, 0);
     }
   }
 }

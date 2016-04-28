@@ -51,11 +51,29 @@ class Form {
     this.center = new PVector(cX, cY);
     this.baseSize = width > height ? height : width;
   }
+  
+  public int generationCount() {
+    return (genEnd - genStart) + 1;
+  }
+  
+  public int genCentersCount() {
+    int count = 0;
+    if (trackCenters == null) {
+      return generationCount();
+    }
+    for (int i = 0; i < trackCenters.length; i++) {
+      print(trackCenters[i] ? "T " : "F ");
+      if (trackCenters[i])
+        count++;
+    }
+    println();
+    return count;
+  }
 
-  public PGraphics draw() {
+  public PGraphics draw(boolean darkBack) {
     g.beginDraw();
     g.colorMode(RGB, 255, 255, 255, 1.0);
-    g.background(0,0,0,0);
+    g.background(darkBack ? 0 : 255,0);
     g.translate(center.x, center.y);
     g.rotate(radians(baseRotation));
 
@@ -91,6 +109,9 @@ class Form {
 
     // draw generations
     drawGeneration(0, 1.0, radians(baseRotation), new PVector());
+    
+    g.pushMatrix();
+    g.rotate(radians(baseRotation-90)); // not sure why?
 
     // draw network lines
     if (showNetwork) {
@@ -107,14 +128,15 @@ class Form {
     }
     
     // draw centers
-    g.noStroke();
     setFill(centerStrokeColor, centerStrokeOpacity);
+    g.noStroke();
     if (showCenters) {
       for (int i = 0; i < centers.size(); i++) {
         PVector p = centers.get(i);
         g.ellipse(p.x, p.y, centerStrokeWeight, centerStrokeWeight);
       }
     }
+    g.popMatrix();
   }
 
   private void drawGeneration(int generation, float scale, float rot0, PVector cent) {
